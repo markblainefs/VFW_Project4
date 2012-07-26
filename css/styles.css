@@ -47,7 +47,7 @@ form ul {
 }
 
 #items ul {
-	list-style-image: url('../images/starBullet.png');
+	list-style-type: none;
 	margin-bottom: 20px;
 }
 
