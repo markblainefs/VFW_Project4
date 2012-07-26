@@ -92,8 +92,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Display list
 	function getData(){
 		if (localStorage.length===0){
-			alert("You don't have anything to do");
-			return false;
+			alert("You don't have anything to do so default data was added");
+			toggleControls("on");
+			autoFillData();			
 		}
 		toggleControls("on");
 		//Write data from local storage to the browser
@@ -126,6 +127,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function autoFillData(){
+		//The actual JSON OBJECT data required is coming from json.js
+		//Store the JSON OBJECT into localStorage
+		for(var n in json){
+			var id = Math.floor(Math.random()*1000000001);
+			localStorage.setItem(id,JSON.stringify(json[n]));
+		}
+	}	
+
 	//Make item links
 	//Will create edit and delete links for each stored item when displayed
 	function makeItemLinks (key, linksLi){
